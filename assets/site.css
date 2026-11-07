@@ -841,3 +841,17 @@ h2{font-size:clamp(1.7rem,1.25rem + 1.6vw,2.45rem);line-height:1.15}
   .hero-art{padding-bottom:0}
   .hero-quote{position:relative;left:auto;bottom:auto;transform:none;margin:-34px auto 0}
 }
+.prov-media .dot{display:none}
+@media (min-width:600px){.rev-grid-2{grid-template-columns:1fr 1fr}}
+/* No card left alone on a row: an odd last card spans the row in two-column grids. */
+@media (min-width:600px){
+  .silo>:last-child:nth-child(odd),.cards-2>:last-child:nth-child(odd),.cards-4>:last-child:nth-child(odd){grid-column:1/-1}
+}
+@media (min-width:600px) and (max-width:999px){
+  .rev-grid>:last-child:nth-child(odd),.posts>:last-child:nth-child(odd),.cards-3>:last-child:nth-child(odd),.finder-list>:last-child:nth-child(odd){grid-column:1/-1}
+}
+@media (min-width:1000px){
+  .silo:has(>:nth-child(3):last-child){grid-template-columns:repeat(3,1fr)}
+  .silo:has(>:nth-child(3):last-child)>:last-child{grid-column:auto}
+  .foot-cols{grid-template-columns:repeat(6,1fr)}
+}
