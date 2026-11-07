@@ -1,5 +1,5 @@
 /* ORIGEN Healthcare redesign. Colours from the clinic itself: the dusty blue walls, the royal blue front desk,
-   the tulips, and the five dots of the logo, which also key the care lines. Type: Newsreader (display) + Figtree. */
+   the tulips, and the five dots of the logo, which also key the care lines. Type: one family, Figtree, for headings and text (client feedback, 7 Nov 2026). */
 :root{
   --paper:#F7F6F2; --paper-2:#EDF2F5; --white:#fff;
   --wall:#7E9AAE; --wall-deep:#46657D; --royal:#2B4FA3;
@@ -12,7 +12,7 @@
   --sh:0 1px 2px rgba(19,36,63,.06),0 10px 28px -12px rgba(19,36,63,.22);
   --sh-lg:0 2px 6px rgba(19,36,63,.06),0 30px 60px -24px rgba(19,36,63,.36);
   --f:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --fd:"Newsreader",Georgia,"Times New Roman",serif;
+  --fd:var(--f);
   --ease:cubic-bezier(.2,.7,.2,1);
   --head-h:72px;
 }
@@ -782,3 +782,62 @@ body.on-thanks .ab-req{display:none}
 .ins-rows .card h3 .dot{flex:none}
 .ba-grid{display:block!important;columns:3 240px;column-gap:12px}
 .ba-grid .ba{break-inside:avoid;margin:0 0 12px;display:block}
+
+/* One type family (client feedback, 7 Nov 2026): Figtree only, no italics, headings set heavier and a
+   little smaller than the old serif so they sit level with the text. */
+h1,h2{font-weight:600;letter-spacing:-.022em}
+h2{font-size:clamp(1.7rem,1.25rem + 1.6vw,2.45rem);line-height:1.15}
+.hero-h{font-weight:600;font-size:clamp(2.3rem,1.55rem + 3.2vw,4.25rem);line-height:1.05;letter-spacing:-.03em;max-width:14ch}
+.hero-h em{font-style:normal;color:var(--royal)}
+.phero h1,.req-head h1,.thanks h1,.post-head h1{font-weight:600;letter-spacing:-.025em}
+.phero h1{font-size:clamp(2rem,1.4rem + 2.3vw,3.2rem);line-height:1.08}
+.req-head h1,.thanks h1,.post-head h1{font-size:clamp(1.95rem,1.4rem + 2.1vw,3rem);line-height:1.1}
+.meet-quote p,.pstrip-quote p,.big-quote p{font-style:normal}
+.big-quote p{font-size:clamp(1.15rem,1rem + .6vw,1.45rem);font-weight:500;line-height:1.5}
+.hero-quote blockquote p,.review-pull blockquote p,.meet-quote p,.pstrip-quote p{font-size:1.05rem;font-weight:500;line-height:1.5}
+.drawer-group summary,.drawer-link{font-size:1.15rem;font-weight:600}
+.line h3,.tile-title,.pc-title,.side-title,.callout-t,.req-q{font-size:1.2rem;font-weight:600;letter-spacing:-.01em}
+.why-list h3,.silo-card strong,.pf-text strong,.sub h3{font-size:1.12rem;font-weight:600}
+.fact dd{font-size:1.1rem;font-weight:600}
+.rev-score strong{font-size:3rem;font-weight:700;letter-spacing:-.03em}
+.fs-n,.step-n{font-size:1.15rem;font-weight:700}
+
+/* Symmetry pass (client feedback, 7 Nov 2026): centred section heads over even grids, equal columns in
+   two-column bands, one framed hero photo in place of the circle cluster, rows of equal cards. */
+.sec-head,.why-head{margin-inline:auto;text-align:center}
+.sec-head p,.why-head p{margin-inline:auto}
+.rev-top{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px}
+.rev-masonry{columns:auto;display:grid;grid-template-columns:1fr;gap:16px}
+.rev-masonry>.review{margin:0;display:flex;flex-direction:column}
+.rev-masonry>.review figcaption{margin-top:auto}
+.orb-person,.orb-room,.orb-dot,.meet-photo .dot{display:none}
+.hero-art{aspect-ratio:auto;max-width:600px;padding-bottom:44px}
+.orb-main{position:relative;left:auto;top:auto;width:100%;aspect-ratio:5/4;border-radius:var(--r-xl)}
+.hero-quote{left:50%;transform:translateX(-50%);bottom:0;width:min(340px,86%);text-align:center}
+.hero-quote .hq-stars{justify-content:center}
+.meet-photo{max-width:380px}
+.meet-orb{border-radius:var(--r-xl);aspect-ratio:4/5}
+.ins-logos{display:flex;flex-wrap:wrap;justify-content:center}
+.ins-logos li{flex:0 0 calc(50% - 5px)}
+.visit-photo{padding-bottom:0}
+.visit-sign{right:16px;bottom:16px;width:38%;border-width:4px}
+@media (min-width:600px){
+  .rev-masonry{grid-template-columns:repeat(2,1fr)}
+  .ins-logos li{flex-basis:calc(25% - 8px)}
+}
+@media (min-width:1000px){
+  .hero-in,.sband-in,.meet-in,.visit-in,.spa-in,.phero-in{grid-template-columns:1fr 1fr}
+  .meet-in{align-items:center}
+  .rev-masonry{grid-template-columns:repeat(3,1fr)}
+  .lines-grid{grid-template-columns:1fr 1fr;grid-template-areas:"mh sp" "pc wl"}
+  .line-sp{display:block}
+  .line-sp .line-media{display:none}
+}
+.finder-head{margin-inline:auto;text-align:center}
+.finder-foot{text-align:center}
+.phero-media>img{border-radius:var(--r-xl)}
+@media (max-width:599px){.finder-list li:last-child:nth-child(odd){grid-column:1/-1}}
+@media (max-width:999px){
+  .hero-art{padding-bottom:0}
+  .hero-quote{position:relative;left:auto;bottom:auto;transform:none;margin:-34px auto 0}
+}
